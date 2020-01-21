@@ -18,7 +18,7 @@ public:
 		head = NULL; //первого элемента пока нет
 	}
 	//метод, добавляющий новый узел в список
-	void addNode(int d)
+	void operator+=(int d)
 	{
 		Node* nd = new Node; //динамически создаем новый узел
 		nd->data = d;        //задаем узлу данные
@@ -36,7 +36,7 @@ public:
 		}
 	}
 	//метод, выводящий связанный список на экран
-	void printList()
+	/*void printList()
 	{
 		Node* current = head;
 		while (current != NULL)
@@ -44,16 +44,27 @@ public:
 			cout << current->data << endl;
 			current = current->next;
 		}
+	}*/
+
+	std::ostream& operator<<(std::ostream& out)
+	{
+		Node* current = head;
+		while (current != nullptr)
+		{
+			out << current->data << endl;
+			current = current->next;
+		}
+		return out;
 	}
 };
 int main()
 {
 	List myList;
-	myList.addNode(5);
-	myList.addNode(11);
-	myList.addNode(27);
-	myList.addNode(35);
-	myList.addNode(50);
-	myList.printList();
+	myList.operator+=(5);
+	myList += 11;
+	myList += 27;
+	myList += 35;
+	myList += 50;
+	std:cout << myList;
 	return 0;
 }

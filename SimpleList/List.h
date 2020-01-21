@@ -7,24 +7,20 @@ private:
 	class Node
 	{
 	private:
-		int* item;
+		int item;
 		Node* next;
 	public:
 		Node()
 		{
-			item = nullptr;
+			item = 0;
 			next = nullptr;
 		}
 		Node(const int& item)
 		{
-			this->item = new int(item);
+			this->item = item;
 			next = nullptr;
 		}
-		~Node()
-		{
-			delete item;
-		}
-		void setItem(int *item)
+		void setItem(const int& item)
 		{
 			this->item = item;
 		}
@@ -32,13 +28,13 @@ private:
 		{
 			this->next = next;
 		}
-		Node* getNext()
+		Node* getNext() 
 		{
 			return next;
 		}
-		int getItem()
+		int getItem() const
 		{
-			return *item;
+			return item;
 		}
 		bool operator==(const Node& right) const
 		{
@@ -54,7 +50,8 @@ private:
 public:
 	List()
 	{
-		tail = nullptr;
+		tail = new Node;
+		head = tail;
 	}
 	~List()
 	{
@@ -67,7 +64,7 @@ public:
 		}
 		delete current;
 	}
-	List& operator+(int *item)
+	List& operator+=(const int& item)
 	{
 		Node* current;
 		tail->setNext(current);
@@ -98,7 +95,7 @@ public:
 			}
 			current = current->getNext();
 		}
-		return *this;
+		//////return *this;
 	}
 	
 	friend std::ostream& operator<<(std::ostream& out, const List& list)
