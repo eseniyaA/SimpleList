@@ -78,10 +78,10 @@ public:
 			delete oldHead;
 		}
 
-		Node* prev = head;
-		current = head->getNext();
 		if (head = tail)
 			return;
+		Node* prev = head;
+		current = head->getNext();
 		while (current != tail)
 		{
 			if (min == current->getItem())

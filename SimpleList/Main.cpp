@@ -9,7 +9,7 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		int a;
-		std::cin >> a;
+		std::cin >> a; //сделать эксэпшн на херовый ввод
 		list1 += a;
 	}
 
@@ -22,8 +22,6 @@ int main()
 
 	list1.removeMinimal();
 	std::cout << list1 << std::endl;
-
-	
 
 	return 0;
 }
