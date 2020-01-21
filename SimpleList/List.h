@@ -15,11 +15,6 @@ private:
 			item = 0;
 			next = nullptr;
 		}
-		Node(const int& item)
-		{
-			this->item = item;
-			next = nullptr;
-		}
 		void setItem(const int& item)
 		{
 			this->item = item;
@@ -35,15 +30,7 @@ private:
 		int getItem() const
 		{
 			return item;
-		}
-		bool operator==(const Node& right) const
-		{
-			return this->item == right.item;
-		}
-		bool operator<(const Node& right) const
-		{
-			return this->item < right.item;
-		}
+		} 
 	};
 	Node *head;
 	Node *tail;
@@ -84,7 +71,7 @@ public:
 			current = current->getNext();
 		}
 
-		while (head != tail && head->getItem == min)
+		while (head != tail && head->getItem() == min)
 		{
 			Node* oldHead = head;
 			head = head->getNext();
