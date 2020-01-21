@@ -118,7 +118,7 @@ public:
 
 std::ostream& operator<<(std::ostream& out, const List& list)
 {
-	Node* current;
+	List::Node* current = list.head;
 	while (current->getItem != nullptr)
 	{
 		out << current->getItem;
