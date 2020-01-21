@@ -34,6 +34,7 @@ private:
 	};
 	Node *head;
 	Node *tail;
+
 public:
 	List()
 	{
@@ -53,6 +54,9 @@ public:
 		}
 		delete current;
 	}
+	List(List const&) = delete;
+	List& operator=(List const&) = delete;
+
 	List(List&& list) noexcept
 	{
 		this->head = list.head;
@@ -61,6 +65,7 @@ public:
 		list.tail = nullptr;
 
 	}
+
 	List& operator+=(const int& item)
 	{
 		tail->setItem(item);
