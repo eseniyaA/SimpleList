@@ -42,6 +42,8 @@ public:
 	}
 	~List()
 	{
+		if (head == nullptr || tail == nullptr)
+			return;
 		Node* current = head;
 		while (head != tail)
 		{
@@ -50,6 +52,14 @@ public:
 			head = current;
 		}
 		delete current;
+	}
+	List(List&& list) noexcept
+	{
+		this->head = list.head;
+		this->tail = list.tail;
+		list.head = nullptr;
+		list.tail = nullptr;
+
 	}
 	List& operator+=(const int& item)
 	{
@@ -97,6 +107,8 @@ public:
 				current = current->getNext();
 			}
 		}
+
+
 		
 	}
 	
