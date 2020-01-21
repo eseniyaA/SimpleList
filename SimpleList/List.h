@@ -84,24 +84,29 @@ public:
 			current = current->getNext();
 		}
 
-		Node* prev = current;
 		while (head != tail && head->getItem == min)
 		{
 			Node* oldHead = head;
 			head = head->getNext();
+			delete oldHead;
 		}
+
+		Node* prev = head;
+		current = head->getNext();
 		while (current != tail)
 		{
-			if (head->getItem == min)
-			{
-				head = current;
-				delete head;
-			}
 			if (min == current->getItem())
 			{
-
+				Node* oldCurrent = current;
+				current = current->getNext();
+				delete oldCurrent;
+				prev->setNext(current);
 			}
-			current = current->getNext();
+			else
+			{
+				prev = current;
+				current = current->getNext();
+			}
 		}
 
 	}
