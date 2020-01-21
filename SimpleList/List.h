@@ -66,12 +66,10 @@ public:
 	}
 	List& operator+=(const int& item)
 	{
-		Node* current;
-		tail->setNext(current);
 		tail->setItem(item);
-		if (tail->getNext == nullptr)
-			tail->setNext = new List();
-		tail = tail->getNext;
+		Node* newTail = new Node();
+		tail->setNext = newTail;
+		tail = newTail;
 		return *this;
 	}
 
