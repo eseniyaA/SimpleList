@@ -68,28 +68,33 @@ public:
 	{
 		tail->setItem(item);
 		Node* newTail = new Node();
-		tail->setNext = newTail;
+		tail->setNext(newTail);
 		tail = newTail;
 		return *this;
 	}
 
-	List& removeMinimal()
+	void removeMinimal()
 	{
 		int min = INT_MAX;
 		Node* current = head;
-		while (current->getNext() != nullptr)
+		while (current != tail)
 		{
-			if (min < current->getItem())
+			if (min > current->getItem())
 				min = current->getItem();
 			current = current->getNext();
 		}
 
-		while (current->getNext() != nullptr)
+		Node* prev = current;
+		while (current != tail)
 		{
-			if (min < current->getItem())
+			if (head->getItem == min)
 			{
-				current->setItem(nullptr);
-				current = current->getNext();
+				head = current;
+				delete head;
+			}
+			if (min == current->getItem())
+			{
+				
 			}
 			current = current->getNext();
 		}
