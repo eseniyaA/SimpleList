@@ -108,19 +108,20 @@ public:
 				current = current->getNext();
 			}
 		}
-
 	}
 	
-	friend std::ostream& operator<<(std::ostream& out, const List& list)
-	{
-		Node* current;
-		while (current->getItem != nullptr)
-		{
-			out << current->getItem;
-		}
-		return out;
-	}
+	friend std::ostream& operator<<(std::ostream& out, const List& list);
 
 	
 	
 };
+
+std::ostream& operator<<(std::ostream& out, const List& list)
+{
+	Node* current;
+	while (current->getItem != nullptr)
+	{
+		out << current->getItem;
+	}
+	return out;
+}
