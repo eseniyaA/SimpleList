@@ -10,4 +10,7 @@ int main()
 		std::cin >> a;
 		list1 += a;
 	}
+
+	std::cout << list1;
+	return 0;
 }
