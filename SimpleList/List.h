@@ -89,20 +89,21 @@ public:
 		{
 			Node* oldHead = head;
 			head = head->getNext();
-			while (current != tail)
-			{
-				if (head->getItem == min)
-				{
-					head = current;
-					delete head;
-				}
-				if (min == current->getItem())
-				{
-
-				}
-				current = current->getNext();
-			}
 		}
+		while (current != tail)
+		{
+			if (head->getItem == min)
+			{
+				head = current;
+				delete head;
+			}
+			if (min == current->getItem())
+			{
+
+			}
+			current = current->getNext();
+		}
+
 	}
 	
 	friend std::ostream& operator<<(std::ostream& out, const List& list)
