@@ -110,18 +110,19 @@ public:
 		}
 	}
 	
-	friend std::ostream& operator<<(std::ostream& out, const List& list);
+	friend std::ostream& operator<<(std::ostream& out, List& list);
 
 	
 	
 };
 
-std::ostream& operator<<(std::ostream& out, const List& list)
+std::ostream& operator<<(std::ostream& out, List& list)
 {
 	List::Node* current = list.head;
-	while (current->getItem != nullptr)
+	while (current != list.tail)
 	{
-		out << current->getItem;
+		out << current->getItem() << ' ';
+		current = current->getNext();
 	}
 	return out;
 }
