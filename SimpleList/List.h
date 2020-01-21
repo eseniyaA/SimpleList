@@ -75,6 +75,7 @@ public:
 		if (tail->getNext == nullptr)
 			tail->setNext = new List();
 		tail = tail->getNext;
+		return *this;
 	}
 
 	List& removeMinimal()
@@ -97,6 +98,7 @@ public:
 			}
 			current = current->getNext();
 		}
+		return *this;
 	}
 	
 	friend std::ostream& operator<<(std::ostream& out, const List& list)
