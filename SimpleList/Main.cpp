@@ -4,13 +4,26 @@
 int main()
 {
 	List list1;
-	for (int i = 0; i < 10; i++)
+	int n;
+	std::cin >> n;
+	for (int i = 0; i < n; i++)
 	{
 		int a;
 		std::cin >> a;
 		list1 += a;
 	}
 
-	std::cout << list1;
+	std::cout << list1 << std::endl;
+	list1.removeMinimal();
+	std::cout << list1 << std::endl;
+
+	list1.removeMinimal();
+	std::cout << list1 << std::endl;
+
+	list1.removeMinimal();
+	std::cout << list1 << std::endl;
+
+	
+
 	return 0;
 }
