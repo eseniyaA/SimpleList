@@ -152,6 +152,14 @@ public:
 		{
 			return current->getItem();
 		}
+		bool operator==(const Iterator& itr)
+		{
+			return current == itr.current;
+		}
+		bool operator!=(const Iterator& itr)
+		{
+			return current != itr.current;
+		}
 	};
 
 	void reduce()
