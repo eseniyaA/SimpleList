@@ -15,6 +15,7 @@ private:
 			item = 0;
 			next = nullptr;
 		}
+		Node(Node const&) = delete;
 		void setItem(const int& item)
 		{
 			this->item = item;
@@ -112,15 +113,46 @@ public:
 				current = current->getNext();
 			}
 		}
-
-
-		
+	
 	}
 	
 	friend std::ostream& operator<<(std::ostream& out, List& list);
 
-	
-	
+	class Iterator
+	{
+	private:
+		Node* current;
+	public:
+		Iterator(Node* current)
+		{
+			this->current = current;
+		}
+		Iterator(const Iterator& itr)
+		{
+			current = itr.current;
+		}
+		Iterator operator++(int)
+		{
+			Iterator tmp = Iterator(*this);
+			if (current->getNext() != nullptr)
+				current = current->getNext();
+			return tmp;
+		}
+		Iterator& operator++()
+		{
+			if (current->getNext() != nullptr)
+				current = current->getNext();
+			return *this;
+		}
+		void setItem(const int& item)
+		{
+			current->setItem(item);
+		}
+		int getItem() const
+		{
+			return current->getItem();
+		}
+	};
 };
 
 std::ostream& operator<<(std::ostream& out, List& list)
