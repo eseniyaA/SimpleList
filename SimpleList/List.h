@@ -153,6 +153,22 @@ public:
 			return current->getItem();
 		}
 	};
+
+	void reduce()
+	{
+		Node* newElem = head;
+		Node* current = head;
+		
+		while (current != tail)
+		{
+			if (current->getNext() == tail)
+				return;
+			Node* next = current->getNext();
+			current->setItem(current->getItem() + next->getItem());
+			current->setNext(next->getNext());
+			current = current->getNext();
+		}	
+	}
 };
 
 std::ostream& operator<<(std::ostream& out, List& list)

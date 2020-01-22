@@ -14,13 +14,16 @@ int main()
 	}
 
 	std::cout << list1 << std::endl;
-	list1.removeMinimal();
+	/*list1.removeMinimal();
 	std::cout << list1 << std::endl;
 
 	list1.removeMinimal();
 	std::cout << list1 << std::endl;
 
 	list1.removeMinimal();
+	std::cout << list1 << std::endl;*/
+
+	list1.reduce();
 	std::cout << list1 << std::endl;
 
 	return 0;
