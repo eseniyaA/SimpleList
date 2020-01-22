@@ -156,10 +156,9 @@ public:
 
 	void reduce()
 	{
-		Node* newElem = head;
 		Node* current = head;
 		
-		while (current != tail)
+		while (current != tail && current->getNext() != tail)
 		{
 			if (current->getNext() == tail)
 				return;
@@ -167,6 +166,7 @@ public:
 			current->setItem(current->getItem() + next->getItem());
 			current->setNext(next->getNext());
 			current = current->getNext();
+			delete next;
 		}	
 	}
 };
